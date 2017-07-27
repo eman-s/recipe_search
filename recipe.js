@@ -5,9 +5,7 @@ let searchResults = document.querySelector(".results");
 
 
 
-
-
-function search(){
+searchButton.addEventListener("click", function(){
 let inputValue = input.value;
 
   fetch(`https://crossorigin.me/http://www.recipepuppy.com/api/?i=${inputValue}`).then(
@@ -21,7 +19,7 @@ let inputValue = input.value;
 
         response.json().then(function(obj){
 
-          console.log(obj.results.forEach(function(object){
+          obj.results.forEach(function(object){
             console.log("objects are: " ,object);
             let imageSource = object.thumbnail;
             let link = object.href;
@@ -29,22 +27,19 @@ let inputValue = input.value;
 
 
             let results = `<h3>${title}</h3>
-                              <br>
-                              <img src="${imageSource}" alt="">
-                              <br>
-                              <a href="${link}">EAT THIS</a>`
+                           <a href="${link}"><img src="${imageSource}" alt="picture of food"></a>`
 
             searchResults.innerHTML += results;
 
 
           })
-        );
 
       });
-    }
-  )
+     }
+    )
+
   .catch(function(err){
   console.log("fetch error :-S", err);
-  });
+});
 
-};
+});
