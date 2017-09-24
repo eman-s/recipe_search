@@ -6,9 +6,9 @@ let searchResults = document.querySelector(".results");
 
 
 searchButton.addEventListener("click", function(){
-let inputValue = input.value;
+  let inputValue = input.value;
 
-  fetch(`https://crossorigin.me/http://www.recipepuppy.com/api/?i=${inputValue}`).then(
+  fetch(`https://crossorigin.me/http://www.recipepuppy.com/api/?q=${inputValue}`).then(
 
       function(response){
 
@@ -26,8 +26,11 @@ let inputValue = input.value;
             let title = object.title
 
 
-            let results = `<h3>${title}</h3>
-                           <a href="${link}"><img src="${imageSource}" alt="picture of food"></a>`
+            let results = `<div class='recipe'>
+                          <h3 class='title'>${title}</h3>
+                           <a href="${link}"><img src="${imageSource}" alt="picture of food"></a>
+                           </div>`
+
 
             searchResults.innerHTML += results;
 

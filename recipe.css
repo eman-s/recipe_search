@@ -1,0 +1,12 @@
+.results {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search_field{
+  padding: 50px;
+}
+
+.recipe{
+  padding: 15px;
+}
